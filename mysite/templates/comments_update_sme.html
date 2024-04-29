@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <style>
+        TABLE {
+            width: 500px;
+            border-collapse: collapse;
+        }
+
+        TD, TH {
+            padding: 3px;
+            border: 1px solid black;
+        }
+
+        TH {
+            background: #b0e0e6;
+        }
+    </style>
+</head>
+<body>
+<h2> Catching {Start / Middle / Finish} In Comments: </h2>
+
+<table>
+
+    <tr>
+        <th> Comment</th>
+        <th> Contains 'Start/Middle/Finish'</th>
+    </tr>
+
+    {% for i in comm_in_general %}
+
+    <tr>
+        {% if i in inner_text %}
+            <td> {{ i }}</td>
+            <td style="color: green; text-align: center"> True</td>
+        {% else %}
+            <td> {{ i }}</td>
+            <td style="color: red; text-align: center"> False</td>
+        {% endif %}
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+<div> Total Amount Of Comments: {{ comm_in_general.count }}</div>
+
+</body>
+</html>
